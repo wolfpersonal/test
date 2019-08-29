@@ -1,0 +1,8 @@
+com\frxs\ocean\domain\dto\partner\apiconfig\PartnerApiConfig.class
+com\frxs\ocean\domain\enums\PartnerProtocalEnum.class
+com\frxs\ocean\domain\enums\OceanProtocalEnum.class
+com\frxs\ocean\domain\dto\app\App.class
+com\frxs\ocean\domain\enums\StatusEnum.class
+com\frxs\ocean\domain\dto\script\config\AppApiScriptConfig.class
+com\frxs\ocean\domain\dto\partner\Partner.class
+com\frxs\ocean\domain\dto\script\Script.class

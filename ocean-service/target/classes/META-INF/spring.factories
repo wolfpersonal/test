@@ -1,0 +1,1 @@
+#org.springframework.boot.SpringApplicationRunListener=com.frxs.ocean.service.bootstrap.ClientApplicationRunListener

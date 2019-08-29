@@ -1,0 +1,5 @@
+com\frxs\ocean\service\request\ResponseCallBack.class
+com\frxs\ocean\service\request\client\dubbo\DubboOceanClient.class
+com\frxs\ocean\service\request\client\AbstractOceanClient.class
+com\frxs\ocean\service\request\client\OceanClient.class
+com\frxs\ocean\service\annotation\ClientBinding.class

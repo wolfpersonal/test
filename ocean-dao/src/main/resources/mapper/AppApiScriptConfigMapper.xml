@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frxs.ocean.dao.script.config.AppApiScriptConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.frxs.ocean.domain.dto.script.config.AppApiScriptConfig">
+        <id column="id" property="id" />
+        <result column="appId" property="appId" />
+        <result column="apiId" property="apiId" />
+        <result column="order" property="order" />
+        <result column="scriptId" property="scriptId" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="createTime" property="createTime" />
+        <result column="lastModify" property="lastModify" />
+    </resultMap>
+
+</mapper>
