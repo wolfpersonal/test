@@ -56,8 +56,6 @@ pipeline {
                             application: env.APP_NAME, 
                             image: env.IMAGE_NAME, 
                             tag: env.TAG_NAME)
-				sh "ready to run..."
-				sh "java -jar ocean-api-0.0.1-SNAPSHOT.jar &"
 			
             }
         }
