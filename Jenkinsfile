@@ -12,7 +12,7 @@ pipeline {
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
 											  credentialsId: "cicd-ocean-gateway-key",
-                                              remote: "ssh://git@gitlab.frxs.cn:2222/wenglifeng/ocean-gateway.git"]))
+                                              remote: "https://github.com/wolfpersonal/test.git"]))
                 
                 initParameters() 
                 
@@ -28,9 +28,18 @@ pipeline {
         }
         stage("Build Image") {
             steps {
-                sh "docker build -t openshift/gateway-test:1 ./ocean-api"
-				script {
-                    env.IMAGE_NAME = "openshift/gateway-test:1"
+				
+				applyTemplate(project: env.DEV_PROJECT, 
+                              application: env.APP_NAME, 
+                              template: env.APP_TEMPLATE, 
+                              parameters: env.APP_TEMPLATE_PARAMETERS_DEV,
+                              createBuildObjects: true)
+			
+				
+			
+                buildImage(project: env.DEV_PROJECT, 
+                           application: env.APP_NAME, 
+                           artifactsDir: "./target")
                 }
             }
         }
