@@ -11,7 +11,7 @@ pipeline {
             steps {     
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
-											  credentialsId: "cicd-ocean-gateway-key",
+											  credentialsId: "wolfpersonal",
                                               remote: "https://github.com/wolfpersonal/test.git"]))
                 
                 initParameters() 
