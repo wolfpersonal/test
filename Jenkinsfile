@@ -39,7 +39,7 @@ pipeline {
 			
                 buildImage(project: env.DEV_PROJECT, 
                            application: env.APP_NAME, 
-                           artifactsDir: "./target")
+                           artifactsDir: "./ocean-api/target")
                 
             }
         }
