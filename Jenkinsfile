@@ -37,7 +37,7 @@ pipeline {
 		
 		stage("build"){
 			agent {
-					agent { docker }
+					docker { image 'docker:latest' }
 			}
 			steps {
 				sh "docker build -t openshift/gateway:0.0.1 ."
