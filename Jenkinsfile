@@ -23,13 +23,18 @@ pipeline {
                 stash "repo"
             }
 			
-			agent {
-				dockerfile true
-			}
         }
+		stage("build"){
+			steps {
+				sh "echo 'start to build image...'"
+				archiveArtifacts artifacts: '**/target/ocean-api-0.0.1-SNAPSHOT.jar', fingerprint: true
+				agent {
+					dockerfile true
+				}
+			}
+		}
 
     }
-	
     
     
 }
