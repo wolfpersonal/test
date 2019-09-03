@@ -21,26 +21,9 @@ pipeline {
                 stash "repo"
             }
         }
-        stage("Compile") {
-            steps {
-                sh "mvn package -DskipTests"
-            }
-        }
+
         stage("Build Image") {
-            steps {
-				
-				applyTemplate(project: env.DEV_PROJECT, 
-                              application: env.APP_NAME, 
-                              template: env.APP_TEMPLATE, 
-                              parameters: env.APP_TEMPLATE_PARAMETERS_DEV,
-                              createBuildObjects: true)
-			
-				
-			
-                buildImage(project: env.DEV_PROJECT, 
-                           application: env.APP_NAME, 
-                           artifactsDir: "./ocean-api/target")
-                
+				agent { dockerfile true }
             }
         }
         stage("Deploy DEV") {
