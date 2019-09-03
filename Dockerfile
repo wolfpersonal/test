@@ -1,6 +1,5 @@
 FROM docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift:1.2 AS BUILD
 COPY . /usr/src/app/
-RUN mvn -f /usr/src/app/pom.xml -P prod clean install -Dmaven.test.skip=true
 
 FROM docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift:1.2
 LABEL maintainer=wenglifeng@xsyxsc.com

@@ -1,6 +1,6 @@
 pipeline {
 	agent {
-		label "maven"
+		docker { image 'maven:latest'}
 	}
 	
 	options {
@@ -24,13 +24,16 @@ pipeline {
             }
 			
         }
+		
+		stage("Compile") {
+            steps {
+                sh "mvn package -DskipTests"
+            }
+        }
+		
 		stage("build"){
 			steps {
-				sh "echo 'start to build image...'"
-				archiveArtifacts artifacts: '**/target/ocean-api-0.0.1-SNAPSHOT.jar', fingerprint: true
-				agent {
-					dockerfile true
-				}
+				sh "docker build -t openshift/gateway:0.0.1 ."
 			}
 		}
 
