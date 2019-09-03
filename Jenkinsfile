@@ -1,10 +1,8 @@
 pipeline {
     agent {
         label "maven"
+		dockerfile true
     }
-	agent { 
-		dockerfile true 
-	}
     options {
         skipDefaultCheckout()
         disableConcurrentBuilds()
