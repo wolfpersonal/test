@@ -27,8 +27,8 @@ pipeline {
         }
 		
 		stage("Compile") {
-			agent {
-					docker { image 'maven:latest'}
+			agent{
+				label "maven"
 			}
             steps {
                 sh "mvn package -DskipTests"
@@ -37,7 +37,7 @@ pipeline {
 		
 		stage("build"){
 			agent {
-					docker { image 'maven:latest'}
+					agent { dockerfile true }
 			}
 			steps {
 				sh "docker build -t openshift/gateway:0.0.1 ."
