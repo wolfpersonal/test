@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-		dockerfile true
-    }
-    options {
-        skipDefaultCheckout()
-        disableConcurrentBuilds()
-    }
-    stages {
+	stages {
         stage("Checkout") {
             steps {     
                 library(identifier: "openshift-pipeline-library@master", 
@@ -20,8 +13,15 @@ pipeline {
 
                 stash "repo"
             }
-        }
-
+    }
+    agent {
+		dockerfile true
+    }
+    options {
+        skipDefaultCheckout()
+        disableConcurrentBuilds()
+    }
+    
         stage("Deploy DEV") {
             steps {
                 script {
