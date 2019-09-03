@@ -21,10 +21,9 @@ pipeline {
                 stash "repo"
             }
         }
-
         stage("Build Image") {
 				agent { dockerfile true }
-            }
+     
         }
         stage("Deploy DEV") {
             steps {
