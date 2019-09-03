@@ -2,6 +2,9 @@ pipeline {
     agent {
         label "maven"
     }
+	agent { 
+		dockerfile true 
+	}
     options {
         skipDefaultCheckout()
         disableConcurrentBuilds()
@@ -21,12 +24,7 @@ pipeline {
                 stash "repo"
             }
         }
-        stage("Build Image") {
-			steps {
-				agent { dockerfile true }
-			}
-     
-        }
+
         stage("Deploy DEV") {
             steps {
                 script {
