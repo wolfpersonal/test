@@ -1,4 +1,5 @@
 pipeline {
+	
 	options {
         skipDefaultCheckout()
         disableConcurrentBuilds()
@@ -18,13 +19,14 @@ pipeline {
 
                 stash "repo"
             }
+			
+			agent {
+				dockerfile true
+			}
         }
 
     }
 	
-    agent {
-		dockerfile true
-    }
     
     
 }
