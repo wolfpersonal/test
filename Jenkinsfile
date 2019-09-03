@@ -1,7 +1,5 @@
 pipeline {
-	agent {
-		docker { image 'maven'}
-	}
+	agent none
 	
 	options {
         skipDefaultCheckout()
@@ -27,6 +25,9 @@ pipeline {
 		
 		stage("Compile") {
             steps {
+				agent {
+					docker { image 'maven:latest'}
+				}
                 sh "mvn package -DskipTests"
             }
         }
