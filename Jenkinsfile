@@ -22,7 +22,9 @@ pipeline {
             }
         }
         stage("Build Image") {
+			steps {
 				agent { dockerfile true }
+			}
      
         }
         stage("Deploy DEV") {
