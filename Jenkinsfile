@@ -1,6 +1,5 @@
 pipeline {
     agent {
-        label "maven"
 		dockerfile true
     }
     options {
