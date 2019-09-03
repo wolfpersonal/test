@@ -24,10 +24,10 @@ pipeline {
         }
 		
 		stage("Compile") {
-            steps {
-				agent {
+			agent {
 					docker { image 'maven:latest'}
-				}
+			}
+            steps {
                 sh "mvn package -DskipTests"
             }
         }
