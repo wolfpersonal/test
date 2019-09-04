@@ -39,8 +39,8 @@ pipeline {
 			agent{
 				dockerfile {
 					filename 'Dockerfile'
-					dir '/tmp'
-					args '-v /home/jenkins/workspace/cicd/cicd-gateway-test:/tmp'
+					dir '/home/jenkins/workspace/cicd/cicd-gateway-test/'
+					args '-v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/'
 				}
 				
 			}
