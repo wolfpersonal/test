@@ -37,7 +37,7 @@ pipeline {
 		
 		stage("build"){
 			agent {
-				dockerfile true
+				dockerfile "/home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
 			}
 			steps {
 				sh "docker build -t openshift/gateway:0.0.1 /home/jenkins/workspace/cicd/cicd-gateway-test/"
