@@ -38,7 +38,7 @@ pipeline {
 		stage("build"){
 			agent {
 				dockerfile {
-					filename '/home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile'
+					filename 'Dockerfile'
 					dir '/home/jenkins/workspace/cicd/cicd-gateway-test/'
 				}
 			}
