@@ -40,7 +40,7 @@ pipeline {
 				dockerfile true
 			}
 			steps {
-				sh "docker build -t openshift/gateway:0.0.1 ./cicd/cicd-gateway-test/"
+				sh "docker build -t openshift/gateway:0.0.1 /home/jenkins/workspace/cicd/cicd-gateway-test/"
 			}
 		}
 
