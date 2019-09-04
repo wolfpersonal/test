@@ -40,6 +40,7 @@ pipeline {
 				dockerfile true
 			}
 			steps {
+				archiveArtifacts artifacts: './*', fingerprint: true
 				sh "docker build -t openshift/gateway:0.0.1 ."
 			}
 		}
