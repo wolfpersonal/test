@@ -28,30 +28,14 @@ pipeline {
 		
 		stage("Compile") {
 			agent{
-				label "maven"
+				docker{
+					image 'maven:latest'
+				}
 			}
             steps {
                 sh "mvn package -DskipTests"
             }
         }
-		
-		stage("build"){
-			agent {
-				node {
-						checkout scm
-						docker.withRegistry('https://docker-registry-default.dev.ipaas.frxs.com') {
-
-						 def customImage = docker.build("test-image")
-
-						customImage.push("latest")
-						}
-					}
-				}
-			steps {
-				sh " echo finished..."
-			}
-	
-		}
 
     }
     
