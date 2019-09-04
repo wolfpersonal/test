@@ -37,11 +37,15 @@ pipeline {
 		
 		stage("build"){
 			agent {
-				dockerfile {
-					filename 'Dockerfile'
-					customWorkspace '/home/jenkins/workspace/cicd/cicd-gateway-test'
+				node {
+					docker.withRegistry('https://docker-registry-default.dev.ipaas.frxs.com') {
+
+					 def customImage = docker.build("test-image")
+
+					customImage.push("latest")
+					}
+					}
 				}
-			}
 			steps {
 				sh " echo finished..."
 			}
