@@ -1,5 +1,0 @@
-com\frxs\ocean\dao\script\ScriptMapper.class
-com\frxs\ocean\dao\app\AppMapper.class
-com\frxs\ocean\dao\partner\apiconfig\PartnerApiConfigMapper.class
-com\frxs\ocean\dao\partner\PartnerMapper.class
-com\frxs\ocean\dao\script\config\AppApiScriptConfigMapper.class

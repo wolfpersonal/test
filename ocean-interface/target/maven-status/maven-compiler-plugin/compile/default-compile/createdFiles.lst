@@ -1,8 +1,0 @@
-com\frxs\ocean\gateway\facade\protocal\http\HttpProtocalAttribute.class
-com\frxs\ocean\gateway\facade\protocal\ProtocalAttribute.class
-com\frxs\ocean\gateway\facade\OceanRequest.class
-com\frxs\ocean\gateway\facade\OceanRequestFacade.class
-com\frxs\ocean\gateway\facade\ResponseStatus.class
-com\frxs\ocean\gateway\facade\RequestParamter.class
-com\frxs\ocean\gateway\facade\OceanResponse.class
-com\frxs\ocean\gateway\facade\AsyncCallBack.class
