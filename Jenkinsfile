@@ -42,6 +42,9 @@ pipeline {
 					dir '/home/jenkins/workspace/cicd/cicd-gateway-test/'
 				}
 			}
+			steps {
+				sh " echo finished..."
+			}
 	
 		}
 
