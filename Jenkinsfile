@@ -38,12 +38,13 @@ pipeline {
 		stage("build"){
 			agent {
 				node {
-					docker.withRegistry('https://docker-registry-default.dev.ipaas.frxs.com') {
+						checkout scm
+						docker.withRegistry('https://docker-registry-default.dev.ipaas.frxs.com') {
 
-					 def customImage = docker.build("test-image")
+						 def customImage = docker.build("test-image")
 
-					customImage.push("latest")
-					}
+						customImage.push("latest")
+						}
 					}
 				}
 			steps {
