@@ -29,7 +29,7 @@ pipeline {
 		stage("Compile") {
 			agent{
 				docker{
-					image 'openshift/docker:latest'
+					image 'openshift/dmvn:latest'
 				}
 			}
             steps {
