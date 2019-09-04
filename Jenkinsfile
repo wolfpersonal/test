@@ -8,10 +8,10 @@ pipeline {
 	
 	stages {
         stage("Checkout") {
-            steps { 
-				agent{
-					label "maven"
-				}
+			agent{
+				label "maven"
+			}
+            steps {     
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
 											  credentialsId: "wolfpersonal",
