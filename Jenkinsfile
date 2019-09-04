@@ -28,14 +28,26 @@ pipeline {
 		
 		stage("Compile") {
 			agent{
-				docker{
-					dockerfile true
-				}
+				label "maven"
 			}
             steps {
                 sh "mvn package -DskipTests"
             }
         }
+		
+		stage("build") {
+			agent{
+			
+				dockerfile {
+					filename 'Dockerfile'
+					dir '/tmp'
+					args '-v /home/jenkins/workspace/cicd/cicd-gateway-test:/tmp'
+				}
+				steps {
+                sh "echo build finished..."
+            }
+			}
+		}
 
     }
     
