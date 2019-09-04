@@ -39,7 +39,7 @@ pipeline {
 			agent {
 				dockerfile {
 					filename 'Dockerfile'
-					customWorkspace '/home/jenkins/workspace/cicd/cicd-gateway-test/'
+					customWorkspace '/home/jenkins/workspace/cicd/cicd-gateway-test'
 				}
 			}
 			steps {
