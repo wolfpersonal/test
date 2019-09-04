@@ -8,7 +8,8 @@ pipeline {
 	
 	stages {
         stage("Checkout") {
-            steps {     
+            steps { 
+				agent none
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
 											  credentialsId: "wolfpersonal",
