@@ -37,14 +37,14 @@ pipeline {
 		
 		stage("build") {
 			agent{
-				dockerfile {
-					filename 'Dockerfile'
-					dir '/home/jenkins/workspace/cicd/cicd-gateway-test/'
-					args '-v /home/jenkins/workspace/cicd/cicd-gateway-test2/:/home/jenkins/workspace/cicd/cicd-gateway-test/'
+				docker{
+					image 'openshift/docker'
+					args '-v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/'
 				}
 				
 			}
 			steps {
+				sh 'ls /home/jenkins/workspace/cicd/cicd-gateway-test/'
                 sh "echo build finished..."
             }
 		}
