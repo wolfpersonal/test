@@ -1,5 +1,5 @@
 pipeline {
-	agent none
+	agent any
 	
 	options {
         skipDefaultCheckout()
@@ -27,9 +27,7 @@ pipeline {
         }
 		
 		stage("Compile") {
-			agent{
-				label "maven"
-			}
+	
             steps {
                 sh "mvn package -DskipTests"
 				sh "docker build -t gateway/api:latest ."
