@@ -32,6 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
+				sh "docker build -t gateway/api:latest ."
             }
         }
 		
