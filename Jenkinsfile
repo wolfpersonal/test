@@ -38,8 +38,7 @@ pipeline {
 		stage("build") {
 			agent any
 			steps {
-				sh 'whereis docker'
-				sh 'docker.build(gateway/api:latest)'
+				sh 'docker.build("gateway-api:latest")'
 			}
 		}
 
