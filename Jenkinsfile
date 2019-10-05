@@ -40,7 +40,7 @@ pipeline {
 	
 }   
 node {
-	docker.withServer("tcp://172.16.7.147:2375"){
+	docker.withTool('docker'){
 		echo "image build start"
 		def dockerImage = docker.build("gateway/api:latest","-f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile")
 		echo "image build finished"
