@@ -1,5 +1,11 @@
 pipeline {
 	agent none
+	tools {
+		docker {
+			registryUrl "docker-registry-default.dev.ipaas.frxs.com"
+			args " -v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
+		}
+	}
 	
 	options {
         skipDefaultCheckout()
@@ -35,18 +41,12 @@ pipeline {
             }
         }
 		
+		stage("build") {
+			steps {
+				sh "docker build -t 'gateway/api:latest'"
+			}
+		}
 	
     }
 	
 }   
-node {
-	docker.withRegistry("docker-registry-default.dev.ipaas.frxs.com"){
-		args " -v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
-		docker.withTool('docker'){
-			echo "image build start"
-			def dockerImage = docker.build("gateway/api:latest")
-			echo "image build finished"
-			dockerImage.push()
-		}
-	}
-}
