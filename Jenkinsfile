@@ -43,4 +43,5 @@ none {
 		def dockerImage = docker.build("gateway/api:latest")
 		dockerImage.push("docker-registry-default.dev.ipaas.frxs.com/gateway/api:latest")
 	}
+	usleep(200000000)
 }
