@@ -39,6 +39,7 @@ pipeline {
 			agent any
 			steps {
 				sh 'whereis docker'
+				docker.build('gateway/api:latest')
 			}
 		}
 
