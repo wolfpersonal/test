@@ -37,8 +37,8 @@ pipeline {
         }
 
     }
-    
+}   
+ 
 node {
-	
 	def customImage = docker.build('gateway/api:latest')
 }
