@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent none
 	
 	options {
         skipDefaultCheckout()
@@ -8,6 +8,9 @@ pipeline {
 	
 	stages {
         stage("Checkout") {
+			agent{
+				label "maven"
+			}
             steps {     
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
@@ -24,6 +27,7 @@ pipeline {
         }
 		
 		stage("Compile") {
+			agent none
             steps {
                 sh "mvn package -DskipTests"
 				sh 'docker build -t gateway/api:latest .' 
