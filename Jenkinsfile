@@ -4,7 +4,6 @@ node {
 	
         stage("Checkout") {
 
-            steps {     
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
 											  credentialsId: "wolfpersonal",
@@ -17,8 +16,7 @@ node {
                 stash "repo"
 				
 				sh "mvn package -DskipTests"
-            }
-			
+           			
         }
 		
 		stage("build") {
