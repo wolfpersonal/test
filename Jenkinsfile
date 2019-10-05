@@ -40,11 +40,11 @@ pipeline {
 	
 }   
 node {
-	docker.withTool('docker'){
+	docker.withTool('docker').withRegistry("docker-registry-default.dev.ipaas.frxs.com"){
 		echo "image build start"
-		def dockerImage = docker.build("gateway/api:latest","-f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile")
+		def dockerImage = docker.build("gateway/api:latest","/home/jenkins/workspace/cicd/cicd-gateway-test/")
 		echo "image build finished"
-		dockerImage.push("docker-registry-default.dev.ipaas.frxs.com/gateway/api:latest")
+		dockerImage.push()
 	}
 	usleep(200000000)
 }
