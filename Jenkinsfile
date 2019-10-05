@@ -36,12 +36,7 @@ pipeline {
             }
         }
 		
-		tools {
-			org.jenkinsci.plugins.docker.commons.tools.DockerTool {
-				registryUrl "docker-registry-default.dev.ipaas.frxs.com"
-				args " -v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
-			}
-		}
+		
 		
 		stage("build") {
 			steps {
