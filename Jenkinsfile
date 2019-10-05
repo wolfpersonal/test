@@ -38,6 +38,11 @@ pipeline {
 	
 		
 		stage("build") {
+			agent {
+				docker {
+					args "-v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
+				}
+			}
 			steps {
 				sh "docker build -t 'gateway/api:latest'"
 			}
