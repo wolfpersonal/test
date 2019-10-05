@@ -34,13 +34,9 @@ pipeline {
                 sh "mvn package -DskipTests"
             }
         }
-		
-		stage("build") {
-			agent any
-			steps {
-				sh 'docker.build("gateway-api:latest")'
-			}
-		}
-
+	
     }
 }   
+node {
+	docker.build("gateway/api:latest")
+}
