@@ -35,15 +35,10 @@ pipeline {
 				
             }
         }
-		
-		stage("build") {
-			agent none
-			node {
-				def customImage = docker.build('gateway/api:latest')
-			}
-		}
 
     }
     
-    
+node {
+	
+	def customImage = docker.build('gateway/api:latest')
 }
