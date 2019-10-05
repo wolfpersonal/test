@@ -36,10 +36,9 @@ pipeline {
         }
 	
     }
-	agent {
-		docker
+	
 		node {
 			docker.build("gateway/api:latest")
 		}
-	}
+	
 }   
