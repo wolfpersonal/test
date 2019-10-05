@@ -3,7 +3,9 @@ node {
 	
 	
         stage("Checkout") {
-
+				agent {
+					label 'maven'
+				}
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
 											  credentialsId: "wolfpersonal",
