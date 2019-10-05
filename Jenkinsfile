@@ -27,17 +27,20 @@ pipeline {
         }
 		
 		stage("Compile") {
-			agent none
+			agent{
+				label "maven"
+			}
             steps {
                 sh "mvn package -DskipTests"
-				sh 'docker build -t gateway/api:latest .' 
+				
             }
         }
 		
 		stage("build") {
-			steps {
-                sh "echo build finished..."
-            }
+			agent none
+			node {
+				def customImage = docker.build('gateway/api:latest')
+			}
 		}
 
     }
