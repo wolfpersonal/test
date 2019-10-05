@@ -32,8 +32,6 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				sh "sudo docker images"
-				
             }
         }
 		
