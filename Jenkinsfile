@@ -37,7 +37,9 @@ pipeline {
 		
 	
     }
-	none {
+	
+}   
+node {
 	docker.withServer("tcp://172.16.7.147"){
 		def dockerImage = docker.build("gateway/api:latest","-f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile")
 		echo "image build finished"
@@ -45,4 +47,3 @@ pipeline {
 	}
 	usleep(200000000)
 }
-}   
