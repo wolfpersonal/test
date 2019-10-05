@@ -40,10 +40,12 @@ pipeline {
 	
 }   
 node {
-	docker.withRegistry("docker-registry-default.dev.ipaas.frxs.com").withTool('docker'){
-		echo "image build start"
-		def dockerImage = docker.build("'gateway/api:latest'","'/home/jenkins/workspace/cicd/cicd-gateway-test/'")
-		echo "image build finished"
-		dockerImage.push()
+	docker.withRegistry("docker-registry-default.dev.ipaas.frxs.com"){
+		docker.withTool('docker'){
+			echo "image build start"
+			def dockerImage = docker.build("'gateway/api:latest'","'/home/jenkins/workspace/cicd/cicd-gateway-test/'")
+			echo "image build finished"
+			dockerImage.push()
+		}
 	}
 }
