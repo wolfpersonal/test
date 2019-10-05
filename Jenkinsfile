@@ -43,7 +43,7 @@ node {
 	docker.withRegistry("docker-registry-default.dev.ipaas.frxs.com"){
 		docker.withTool('docker'){
 			echo "image build start"
-			def dockerImage = docker.build("'gateway/api:latest'")
+			def dockerImage = docker.build("'gateway/api:latest'" ," -v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile")
 			echo "image build finished"
 			dockerImage.push()
 		}
