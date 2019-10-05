@@ -35,8 +35,7 @@ pipeline {
                 sh "mvn package -DskipTests"
             }
         }
-		
-		
+	
 		
 		stage("build") {
 			steps {
