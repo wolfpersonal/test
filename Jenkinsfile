@@ -32,6 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
+				sh "systemctl start docker.service"
 				script {
 					docker.withTool('docker'){
 						echo "image build start"
