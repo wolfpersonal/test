@@ -38,11 +38,13 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				docker.withTool('docker'){
-					echo "image build start"
-					def dockerImage = docker.build("gateway/api:latest")
-					echo "image build finished"
-					dockerImage.push()
+				script{
+					docker.withTool('docker'){
+						echo "image build start"
+						def dockerImage = docker.build("gateway/api:latest")
+						echo "image build finished"
+						dockerImage.push()
+					}
 				}
             }
         }
