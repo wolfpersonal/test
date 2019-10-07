@@ -1,5 +1,11 @@
 pipeline {
 	agent none
+	tools {
+		docker {
+			registryUrl "docker-registry-default.dev.ipaas.frxs.com"
+			args " -v /home/jenkins/workspace/cicd/cicd-gateway-test/:/home/jenkins/workspace/cicd/cicd-gateway-test/ -f /home/jenkins/workspace/cicd/cicd-gateway-test/Dockerfile"
+		}
+	}
 	
 	options {
         skipDefaultCheckout()
@@ -32,11 +38,12 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				script{
-					docker.withTools("docker"){
-							echo "image build start"
-							def dockerImage = docker.build("gateway/api:latest")
-							echo "image build finished"
+				script {
+					docker.withTool('docker'){
+						echo "image build start"
+						def dockerImage = docker.build("gateway/api:latest")
+						echo "image build finished"
+						dockerImage.push()
 					}
 				}
             }
