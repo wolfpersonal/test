@@ -32,7 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				sh "sudo docker run -it --privileged centos /usr/sbin/init"
+				sh "docker run -it --privileged centos /usr/sbin/init"
 				script {
 					docker.withTool('docker'){
 						echo "image build start"
