@@ -32,14 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				script {
-					docker.withTool('docker'){
-						echo "image build start"
-						def dockerImage = docker.build("gateway/api:latest")
-						echo "image build finished"
-						dockerImage.push()
-					}
-				}
+				sh "docker -H tcp://172.16.7.147 build  -t 'gateway/api:latest' ."
             }
         }
 		
