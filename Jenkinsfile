@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh "mvn package -DskipTests"
 				script{
-					docker.withTool('docker').withServer("tcp://172.16.7.147:2375"){
+					docker.withServer("tcp://172.16.7.147:2375"){
 						echo "image build start"
 						def dockerImage = docker.build("gateway/api:latest")
 						echo "image build finished"
