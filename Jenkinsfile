@@ -32,7 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				sh "systemctl start docker.service"
+				sh "sudo docker run -it --privileged centos /usr/sbin/init"
 				script {
 					docker.withTool('docker'){
 						echo "image build start"
