@@ -32,7 +32,7 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				sh "docker -H tcp://172.16.7.147 build  -t 'gateway/api:latest' ."
+				sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/api:latest' ."
             }
         }
 		
