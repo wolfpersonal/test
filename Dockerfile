@@ -1,6 +1,3 @@
-FROM docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift:1.2 AS BUILD
-COPY . /usr/src/app/
-
 FROM docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift:1.2
 LABEL maintainer=wenglifeng@xsyxsc.com
 
