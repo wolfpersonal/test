@@ -32,17 +32,16 @@ pipeline {
 			}
             steps {
                 sh "mvn package -DskipTests"
-				
+				script {
+					docker.withTool('docker'){
+						echo "image build start"
+						sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/api:latest' ."
+					}
+				}
             }
         }
 		
-		stage("Build"){
-			agent any
-			
-			steps {
-				sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/api:latest' ."
-			}
-		}
+	
     }
 	
 }   
