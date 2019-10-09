@@ -2,7 +2,7 @@ FROM docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-opens
 LABEL maintainer=wenglifeng@xsyxsc.com
 
 WORKDIR /home
-COPY /home/jenkins/workspace/cicd/cicd-gateway-test/ocean-api/target/ocean-api-0.0.1-SNAPSHOT.jar /home
-
+COPY jenkins/workspace/cicd/cicd-gateway-test/ocean-api/target/ocean-api-0.0.1-SNAPSHOT.jar /home
+	
 CMD ["java","-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-XX:MaxRAMFraction=2", \
      "-jar","-Dfile.encoding=UTF-8","ocean-api-0.0.1-SNAPSHOT.jar"]
