@@ -35,8 +35,8 @@ pipeline {
 				script {
 					docker.withTool('docker'){
 						echo "image build start"
-						sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/api:latest' ."
-						sh "docker -H tcp://172.16.7.147:2375 login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com | docker -H tcp://172.16.7.147:2375 tag gateway/api:latest docker-registry-default.dev.ipaas.frxs.com/gateway/api:latest | docker -H tcp://172.16.7.147:2375 push docker-registry-default.dev.ipaas.frxs.com/gateway/api:latest"
+						sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/apis:latest' ."
+						sh "docker -H tcp://172.16.7.147:2375 login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com | docker -H tcp://172.16.7.147:2375 tag gateway/apis:latest docker-registry-default.dev.ipaas.frxs.com/gateway/apis:latest | docker -H tcp://172.16.7.147:2375 push docker-registry-default.dev.ipaas.frxs.com/gateway/apis:latest"
 					}
 				}
             }
