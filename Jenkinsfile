@@ -37,8 +37,7 @@ pipeline {
 						echo "image build start"
 						sh "docker -H tcp://172.16.7.147:2375 build  -t 'gateway/api2:latest' ."
 						sh "docker -H tcp://172.16.7.147:2375 tag gateway/api2:latest docker-registry-default.dev.ipaas.frxs.com/gateway/api2:latest"
-						sh "docker -H tcp://172.16.7.147:2375 login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com | docker push docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift"
-						}
+						sh "docker -H tcp://172.16.7.147:2375 login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com & push docker-registry-default.dev.ipaas.frxs.com/openshift/redhat-openjdk18-openshift"
 					}
 					
 				}
