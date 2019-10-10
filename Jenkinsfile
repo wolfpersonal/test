@@ -22,6 +22,7 @@ pipeline {
     }
 	
 	stages {
+	
 		stage('init-server'){
             steps {
                 script {                 
@@ -60,7 +61,7 @@ pipeline {
 						echo "image build start"
 						sh "docker -H tcp://172.16.7.147:2375 build  -t 'ocean-gateway/api:latest' ."
 						sh "docker -H tcp://172.16.7.147:2375 tag gateway/api2:latest docker-registry-default.dev.ipaas.frxs.com/ocean-gateway/api:latest"
-						sshCommand remote: server, command: "docker login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com ;docker push docker-registry-default.dev.ipaas.frxs.com/ocean-gateway/api:latest"
+						sshCommand remote: server, command: "oc login -u opradm -p iPaaS2025;docker login -u opradm -p \$(oc whoami -t) docker-registry-default.dev.ipaas.frxs.com ;docker push docker-registry-default.dev.ipaas.frxs.com/ocean-gateway/api:latest"
 					}
 					
 				}
