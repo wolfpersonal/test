@@ -1,7 +1,7 @@
 def getHost(){
     def remote = [:]
     remote.name = 'registry'
-    remote.host = '172.16.7.142'
+    remote.host = '172.16.7.147'
     remote.user = 'root'
     remote.port = 22
     remote.password = 'abc123'
