@@ -3,6 +3,10 @@ LABEL maintainer=wenglifeng@xsyxsc.com
 
 RUN mkdir /bootstrap
 
+RUN mkdir -p /opt/settings/
+RUN touch /opt/settings/server.propertis
+RUN echo "env=DEV \n apollo.meta=http://172.16.10.221:8112" > /opt/settings/server.propertis
+
 COPY ocean-api/target/ocean-api-0.0.1-SNAPSHOT.jar /bootstrap
 
 WORKDIR /bootstrap	
