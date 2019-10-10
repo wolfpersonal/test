@@ -38,8 +38,8 @@ pipeline {
             steps {     
                 library(identifier: "openshift-pipeline-library@master", 
                         retriever: modernSCM([$class: "GitSCMSource",
-											  credentialsId: "wolfpersonal",
-                                              remote: "https://github.com/wolfpersonal/test.git"]))
+											  credentialsId: "GitLab API token",
+                                              remote: "ssh://git@gitlab.frxs.cn:2222/wenglifeng/ocean-gateway.git"]))
                 
                 initParameters() 
                 
