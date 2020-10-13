@@ -53,7 +53,7 @@
         <spring.kafka.version>2.1.12.RELEASE</spring.kafka.version>
         <spring.retry.version>1.1.2.RELEASE</spring.retry.version>
         <!-- unit test-->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <jmockit.version>1.47</jmockit.version>
         <ocean.gateway.version>0.0.1-SNAPSHOT</ocean.gateway.version>
     </properties>
